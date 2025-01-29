@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-v047-in(7jn4h3a5yyai6=ftt0ftsixjezdd60p$mrr@h9!q1r
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['jolly-moral-foal.ngrok-free.app']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -133,6 +133,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.CustomUser'
 AUTHENTICATION_BACKENDS = ['authentication.auth_backend.SMSAuthenticationBackend']
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'
-CSRF_TRUSTED_ORIGINS = [
-    'https://jolly-moral-foal.ngrok-free.app',
-]

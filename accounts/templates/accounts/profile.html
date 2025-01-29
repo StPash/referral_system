@@ -5,12 +5,13 @@
     <title>Профиль</title>
 </head>
 <body>
-Профиль пользователя: {{request.user.phone_number}}
+
 <form action="{% url 'logout' %}" method="post">
     {% csrf_token %}
+    Профиль пользователя: {{request.user.phone_number}}
     <button type="submit">Выйти</button>
 </form>
-INVITE CODE: {{self_invite_code}}
+<p>INVITE CODE: {{self_invite_code}}</p>
 {% if activated_invite_code %}
 <p>Активированный код приглашения:</p>
 <p>Активированный код приглашения: {{activated_invite_code}}</p>
