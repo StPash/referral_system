@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Профиль</title>
+</head>
+<body>
+Профиль пользователя: {{request.user.phone_number}}
+<form action="{% url 'logout' %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Выйти</button>
+</form>
+INVITE CODE: {{self_invite_code}}
+{% if activated_invite_code %}
+<p>Активированный код приглашения:</p>
+<p>Активированный код приглашения: {{activated_invite_code}}</p>
+    {% if messages %}
+        {% for message in messages %}
+        <p>{{ message }}</p>
+        {% endfor %}
+    {% endif %}
+{% else %}
+<form action="{% url 'invite_code_activation'%}" method="post">
+    {% csrf_token %}
+    <input class="text" name="invite_code">
+    <button type="submit">Активировать код</button>
+</form>
+{% endif %}
+
+<p>Приглашенные пользователи:</p>
+{% for user in invited_users %}
+    <p>{{ user }}</p>
+{% endfor %}
+</body>
+</html>

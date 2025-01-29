@@ -1,0 +1,15 @@
+{% extends "authentication/base.html" %}
+
+{% block content %}
+<h2>Введите код отправленный на номер +7{{request.session.phone_number}}</h2>
+{% if message %}
+<p>Ошибка: {{message}}</p>
+{% endif %}
+<form action="{% url 'authentication_otp_input'%}" method="post">
+    {% csrf_token %}
+    <input class="text" name="otp">
+    <button type="submit">Войти</button>
+
+</form>
+
+{% endblock %}

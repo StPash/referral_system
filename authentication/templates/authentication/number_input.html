@@ -1,0 +1,16 @@
+{% extends "authentication/base.html" %}
+
+{% block content %}
+
+<h2>Введите номер телефона в формате 9008001010</h2>
+{% if message %}
+<p>Ошибка: {{message}}</p>
+{% endif %}
+<p>На указанный номер телефона будет отправлено SMS-сообщение с кодом для входа в систему</p>
+<form action="{% url 'authentication_number_input'%}" method="post">
+    {% csrf_token %}
+    <p>+7<input class="text" name="number"></p>
+    <button type="submit">Отправить код</button>
+</form>
+
+{% endblock %}
