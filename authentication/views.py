@@ -45,7 +45,7 @@ def api_number_input(request):
     """
     if request.method == 'POST':
         if number_input(request):
-            return JsonResponse({'message': f'Код отправлен на номер {request.session['phone_number']}',
+            return JsonResponse({'message': f'Код отправлен на номер {request.session["phone_number"]}',
                                  # Раскомментировать при необходимости отображения отправленного кода в JSON-ответе
                                  # 'otp': request.session['otp']
                                  })
